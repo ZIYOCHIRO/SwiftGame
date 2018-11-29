@@ -11,79 +11,86 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
+    // Create game area for universal devices
+    let gameArea: CGRect
+    override init(size: CGSize) {
+        let maxAspectRatio: CGFloat = 16.0/9.0
+        let playableWidth = size.height/maxAspectRatio
+        let gameAreaMargin = (size.width - playableWidth)/2
+        gameArea = CGRect(x: gameAreaMargin, y: 0, width: playableWidth, height: size.height)
+        super.init(size: size)
+        
+    }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func random() -> CGFloat {
+        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+    }
+    
+    func random(min: CGFloat, max: CGFloat) -> CGFloat {
+        return random() * (max - min) + min
+    }
     override func didMove(to view: SKView) {
+        let background = SKSpriteNode(imageNamed: "DiscsBackgroud")
+        background.size = self.size
+        background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+        background.zPosition = 0
+        self.addChild(background)
         
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
-        }
+        let disc = SKSpriteNode(imageNamed: "Disc2")
+        disc.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+        disc.zPosition = 2
+        disc.name = "discObject"
+        self.addChild(disc)
+    }
+    
+    func spawnNewDisc() {
+        // Create a random from 1 to 4
+        var randomImageNumber = arc4random()%4 // (0,1,2,3)
+        randomImageNumber += 1
         
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
+        // get random image
+        let disc = SKSpriteNode(imageNamed: "Disc\(randomImageNumber)")
+        disc.zPosition = 2
+        disc.name = "discObject"
         
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
+        // Create random position in game area and make the disc full
+        let randomX = random(min: gameArea.minX + disc.size.width / 2, max: gameArea.maxX - disc.size.width / 2)
+        let randomY = random(min: gameArea.minY + disc.size.height / 2, max: gameArea.maxY - disc.size.height / 2 )
+        
+        disc.position = CGPoint(x: randomX, y: randomY)
+        self.addChild(disc)
+        
+        
+        
+        
     }
-    
-    
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+        for touch: AnyObject in touches {
+            let positionOfTouch = touch.location(in: self)
+            let tappedNode = atPoint(positionOfTouch)
+            let nameOfTappedNode = tappedNode.name
+            
+            if nameOfTappedNode == "discObject" {
+                // 1.delete the current disc
+                tappedNode.removeFromParent()
+                // 2.create a new disc
+                spawnNewDisc()
+            }
         }
-        
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
     }
 }
+
+
+
+
+
+
+
+
+
+
+
