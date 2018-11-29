@@ -9,12 +9,14 @@
 import SpriteKit
 import GameplayKit
 
+var scoreNumber = 0
+
 class GameScene: SKScene {
     
-    var scoreNumber = 0
     let scoreLabel = SKLabelNode(fontNamed: "Pusab")
     let playCorrectSoundEffect = SKAction.playSoundFileNamed("Correct.wav", waitForCompletion: false)
-    let playClickSoundEffect = SKAction.playSoundFileNamed("Click", waitForCompletion: false)
+
+    let playGameOverSoundEffect = SKAction.playSoundFileNamed("GameOverSound.wav", waitForCompletion: false)
 
     
     // Create game area for universal devices
@@ -40,6 +42,8 @@ class GameScene: SKScene {
         return random() * (max - min) + min
     }
     override func didMove(to view: SKView) {
+        
+        scoreNumber = 0
         let background = SKSpriteNode(imageNamed: "DiscsBackgroud")
         background.size = self.size
         background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
@@ -78,8 +82,22 @@ class GameScene: SKScene {
         disc.position = CGPoint(x: randomX, y: randomY)
         self.addChild(disc)
         
+        // shrink the disc when it's added to the screen
+        disc.run(SKAction.sequence([
+            SKAction.scale(to: 0, duration: 3.0),
+            playGameOverSoundEffect,
+            SKAction.run(runGameOver)
+            ]))
+    
         
-        
+    }
+    
+    func runGameOver() {
+        // move to game over scene
+        let sceneToMoveTo = GameOverScene(size: self.size)
+        sceneToMoveTo.scaleMode = self.scaleMode
+        let sceneTransiton = SKTransition.fade(withDuration: 0.2)
+        self.view!.presentScene(sceneToMoveTo, transition: sceneTransiton)
         
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -89,7 +107,8 @@ class GameScene: SKScene {
             let nameOfTappedNode = tappedNode.name
             
             if nameOfTappedNode == "discObject" {
-                tappedNode.name = "" // to avoid collison 
+                tappedNode.name = "" // to avoid collison
+                tappedNode.removeAllActions() // stop shrink and game over discs fade: 0.1 game over transition = 0.2
                 // 1.delete the current disc
                    // tappedNode.removeFromParent() have better way to disapper
                 tappedNode.run(SKAction.sequence([
