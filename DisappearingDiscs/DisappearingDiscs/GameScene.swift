@@ -11,6 +11,12 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    var scoreNumber = 0
+    let scoreLabel = SKLabelNode(fontNamed: "Pusab")
+    let playCorrectSoundEffect = SKAction.playSoundFileNamed("Correct.wav", waitForCompletion: false)
+    let playClickSoundEffect = SKAction.playSoundFileNamed("Click", waitForCompletion: false)
+
+    
     // Create game area for universal devices
     let gameArea: CGRect
     override init(size: CGSize) {
@@ -37,14 +43,22 @@ class GameScene: SKScene {
         let background = SKSpriteNode(imageNamed: "DiscsBackgroud")
         background.size = self.size
         background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
-        background.zPosition = 0
+        background.zPosition = 0 // background picture at layer 0
         self.addChild(background)
         
         let disc = SKSpriteNode(imageNamed: "Disc2")
         disc.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
-        disc.zPosition = 2
+        disc.zPosition = 2  // disc picture at layer 2
         disc.name = "discObject"
         self.addChild(disc)
+        
+        // add score label to scene
+        scoreLabel.fontSize = 250
+        scoreLabel.text = "0"
+        scoreLabel.fontColor = SKColor.white
+        scoreLabel.zPosition = 1  // score Label at layer 1
+        scoreLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.85)
+        self.addChild(scoreLabel)
     }
     
     func spawnNewDisc() {
@@ -75,10 +89,26 @@ class GameScene: SKScene {
             let nameOfTappedNode = tappedNode.name
             
             if nameOfTappedNode == "discObject" {
+                tappedNode.name = "" // to avoid collison 
                 // 1.delete the current disc
-                tappedNode.removeFromParent()
+                   // tappedNode.removeFromParent() have better way to disapper
+                tappedNode.run(SKAction.sequence([
+                    SKAction.fadeIn(withDuration: 0.1),
+                    SKAction.removeFromParent()
+                    ]))
+                   // add play correct sound effect when tap a disc
+                self.run(playCorrectSoundEffect)
+                
                 // 2.create a new disc
                 spawnNewDisc()
+                // 3.Add 1 to score
+                scoreNumber += 1
+                scoreLabel.text = "\(scoreNumber)"
+                // 4. Reach a certain score, add more discs on screen
+                if scoreNumber == 10 || scoreNumber == 50 || scoreNumber == 125 || scoreNumber == 200 || scoreNumber == 300 || scoreNumber == 500 {
+                    spawnNewDisc()
+                }
+                
             }
         }
     }
