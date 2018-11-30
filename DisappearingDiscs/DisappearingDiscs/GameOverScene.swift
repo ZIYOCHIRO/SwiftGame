@@ -12,6 +12,7 @@ import SpriteKit
 
 class GameOverScene: SKScene {
     let playClickSoundEffect = SKAction.playSoundFileNamed("Click.wav", waitForCompletion: false)
+    
     override func didMove(to view: SKView) {
         
         // Set background
