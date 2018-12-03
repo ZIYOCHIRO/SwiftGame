@@ -19,6 +19,7 @@
 		0DB6B9B021B4B328005451DB /* laser.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6B9AC21B4B328005451DB /* laser.mp3 */; };
 		0DB6B9B121B4B328005451DB /* Click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6B9AD21B4B328005451DB /* Click.wav */; };
 		0DB6B9B221B4B328005451DB /* GameOverSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6B9AE21B4B328005451DB /* GameOverSound.wav */; };
+		0DB6B9B321B51843005451DB /* theBoldFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6B96B21B0CD90005451DB /* theBoldFont.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +146,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DB6B9B321B51843005451DB /* theBoldFont.ttf in Resources */,
 				0DB6B9B021B4B328005451DB /* laser.mp3 in Resources */,
 				0DB6B95F21B0CD47005451DB /* Main.storyboard in Resources */,
 				0DB6B9B221B4B328005451DB /* GameOverSound.wav in Resources */,
