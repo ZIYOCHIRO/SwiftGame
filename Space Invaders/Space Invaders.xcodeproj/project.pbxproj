@@ -20,6 +20,7 @@
 		0DB6B9B121B4B328005451DB /* Click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6B9AD21B4B328005451DB /* Click.wav */; };
 		0DB6B9B221B4B328005451DB /* GameOverSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6B9AE21B4B328005451DB /* GameOverSound.wav */; };
 		0DB6B9B321B51843005451DB /* theBoldFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6B96B21B0CD90005451DB /* theBoldFont.ttf */; };
+		0DB6B9B521B552D8005451DB /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6B9B421B552D8005451DB /* GameOverScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		0DB6B9AC21B4B328005451DB /* laser.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = laser.mp3; sourceTree = "<group>"; };
 		0DB6B9AD21B4B328005451DB /* Click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Click.wav; sourceTree = "<group>"; };
 		0DB6B9AE21B4B328005451DB /* GameOverSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GameOverSound.wav; sourceTree = "<group>"; };
+		0DB6B9B421B552D8005451DB /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				0DB6B95521B0CD47005451DB /* GameScene.sks */,
 				0DB6B95721B0CD47005451DB /* Actions.sks */,
 				0DB6B95921B0CD47005451DB /* GameScene.swift */,
+				0DB6B9B421B552D8005451DB /* GameOverScene.swift */,
 				0DB6B95B21B0CD47005451DB /* GameViewController.swift */,
 				0DB6B95D21B0CD47005451DB /* Main.storyboard */,
 				0DB6B96021B0CD4A005451DB /* Assets.xcassets */,
@@ -168,6 +171,7 @@
 			files = (
 				0DB6B95A21B0CD47005451DB /* GameScene.swift in Sources */,
 				0DB6B95C21B0CD47005451DB /* GameViewController.swift in Sources */,
+				0DB6B9B521B552D8005451DB /* GameOverScene.swift in Sources */,
 				0DB6B95421B0CD47005451DB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
