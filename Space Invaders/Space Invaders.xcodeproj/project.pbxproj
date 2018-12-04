@@ -21,6 +21,8 @@
 		0DB6B9B221B4B328005451DB /* GameOverSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6B9AE21B4B328005451DB /* GameOverSound.wav */; };
 		0DB6B9B321B51843005451DB /* theBoldFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6B96B21B0CD90005451DB /* theBoldFont.ttf */; };
 		0DB6B9B521B552D8005451DB /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6B9B421B552D8005451DB /* GameOverScene.swift */; };
+		0DB6B9B721B62575005451DB /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6B9B621B62575005451DB /* MainMenuScene.swift */; };
+		0DB6B9B921B62AAC005451DB /* backgroundSoundEffect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6B9B821B62AAC005451DB /* backgroundSoundEffect.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		0DB6B9AD21B4B328005451DB /* Click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Click.wav; sourceTree = "<group>"; };
 		0DB6B9AE21B4B328005451DB /* GameOverSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GameOverSound.wav; sourceTree = "<group>"; };
 		0DB6B9B421B552D8005451DB /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		0DB6B9B621B62575005451DB /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
+		0DB6B9B821B62AAC005451DB /* backgroundSoundEffect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundSoundEffect.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +80,12 @@
 				0DB6B95521B0CD47005451DB /* GameScene.sks */,
 				0DB6B95721B0CD47005451DB /* Actions.sks */,
 				0DB6B95921B0CD47005451DB /* GameScene.swift */,
+				0DB6B9B621B62575005451DB /* MainMenuScene.swift */,
 				0DB6B9B421B552D8005451DB /* GameOverScene.swift */,
 				0DB6B95B21B0CD47005451DB /* GameViewController.swift */,
 				0DB6B95D21B0CD47005451DB /* Main.storyboard */,
 				0DB6B96021B0CD4A005451DB /* Assets.xcassets */,
+				0DB6B9B821B62AAC005451DB /* backgroundSoundEffect.mp3 */,
 				0DB6B9AD21B4B328005451DB /* Click.wav */,
 				0DB6B9AB21B4B328005451DB /* Correct.wav */,
 				0DB6B9AE21B4B328005451DB /* GameOverSound.wav */,
@@ -156,6 +162,7 @@
 				0DB6B9AF21B4B328005451DB /* Correct.wav in Resources */,
 				0DB6B9B121B4B328005451DB /* Click.wav in Resources */,
 				0DB6B95621B0CD47005451DB /* GameScene.sks in Resources */,
+				0DB6B9B921B62AAC005451DB /* backgroundSoundEffect.mp3 in Resources */,
 				0DB6B96121B0CD4A005451DB /* Assets.xcassets in Resources */,
 				0DB6B96421B0CD4A005451DB /* LaunchScreen.storyboard in Resources */,
 				0DB6B95821B0CD47005451DB /* Actions.sks in Resources */,
@@ -169,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DB6B9B721B62575005451DB /* MainMenuScene.swift in Sources */,
 				0DB6B95A21B0CD47005451DB /* GameScene.swift in Sources */,
 				0DB6B95C21B0CD47005451DB /* GameViewController.swift in Sources */,
 				0DB6B9B521B552D8005451DB /* GameOverScene.swift in Sources */,

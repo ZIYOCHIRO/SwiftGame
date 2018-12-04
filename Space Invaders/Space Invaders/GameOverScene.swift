@@ -8,6 +8,7 @@
 
 import Foundation
 import SpriteKit
+import GameplayKit
 
 class GameOverScene: SKScene {
     

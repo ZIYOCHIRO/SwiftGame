@@ -19,7 +19,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var livesNumber = 3
     let livesLabel = SKLabelNode(fontNamed: "theBoldFont")
     
-    let player = SKSpriteNode(imageNamed: "playerShip")
+    let player = SKSpriteNode(imageNamed: "player")
     let bulletSound = SKAction.playSoundFileNamed("laser.mp3", waitForCompletion: false)
     let explosionSound = SKAction.playSoundFileNamed("GameOverSound.wav", waitForCompletion: false)
     let tapToStartLabel = SKLabelNode(fontNamed: "theBoldFont")
@@ -82,7 +82,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Create a player
         
-        player.setScale(1) // want the image(player) to be bigger, increase the number
+        player.setScale(0.25) // want the image(player) to be bigger, increase the number
         player.position = CGPoint(x: self.size.width/2, y: 0 - player.size.height)
         player.zPosition = 2
         player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
@@ -359,9 +359,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let startPoint = CGPoint(x: randomXStart, y: self.size.height * 1.2)
         let endPoint = CGPoint(x: randomXEnd, y: self.size.height * 0.2)
         
-        let enemy = SKSpriteNode(imageNamed: "enemyShip")
+        let enemy = SKSpriteNode(imageNamed: "invader")
         enemy.name = "Enemy"
-        enemy.setScale(1)
+        enemy.setScale(0.7)
         enemy.position = startPoint
         enemy.zPosition = 2
         enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.size)
@@ -386,7 +386,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // difference between the startpoint and endPoint
         let dx = endPoint.x - startPoint.x
         let dy = endPoint.y - startPoint.y
-        let amountToRotate = atan2(Float(dy), Float(dx))
+        let amountToRotate = atan2(Float(dy), Float(dx)) + Float.pi*5/4
         enemy.zRotation = CGFloat(amountToRotate)
         
     }
