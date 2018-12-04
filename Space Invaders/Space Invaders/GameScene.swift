@@ -13,7 +13,6 @@ var gameScore = 0
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    
     let scoreLabel = SKLabelNode(fontNamed: "theBoldFont")
     
     var levelNumber = 0
@@ -23,14 +22,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let player = SKSpriteNode(imageNamed: "playerShip")
     let bulletSound = SKAction.playSoundFileNamed("laser.mp3", waitForCompletion: false)
     let explosionSound = SKAction.playSoundFileNamed("GameOverSound.wav", waitForCompletion: false)
-    
+    let tapToStartLabel = SKLabelNode(fontNamed: "theBoldFont")
     enum gameState {
         case preGame  // When the game state is before the start of the game
         case inGame   // When the game state is during the game
         case afterGame // when the game state is after the game
     }
     
-    var currentGameState = gameState.inGame
+    var currentGameState = gameState.preGame
     
     struct PhysicsCategories {
         
@@ -69,16 +68,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameScore = 0
         
         self.physicsWorld.contactDelegate = self
-        // Create background
-        let background = SKSpriteNode(imageNamed: "background")
-        background.size = self.size
-        background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
-        background.zPosition = 0 // in which layer
-        self.addChild(background)
+        
+        // Create 2 background to create moving scene
+        for i in 0...1 {
+            let background = SKSpriteNode(imageNamed: "background")
+            background.size = self.size
+            background.anchorPoint = CGPoint(x: 0.5, y: 0)
+            background.position = CGPoint(x: self.size.width/2, y: self.size.height*CGFloat(i))
+            background.zPosition = 0 // in which layer
+            background.name = "Background"
+            self.addChild(background)
+        }
+        
         // Create a player
         
         player.setScale(1) // want the image(player) to be bigger, increase the number
-        player.position = CGPoint(x: self.size.width/2, y: self.size.height*0.2)
+        player.position = CGPoint(x: self.size.width/2, y: 0 - player.size.height)
         player.zPosition = 2
         player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
         player.physicsBody!.affectedByGravity = false
@@ -93,7 +98,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.fontSize = 70
         scoreLabel.fontColor = UIColor.white
         scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
-        scoreLabel.position = CGPoint(x: self.size.width*0.2, y: self.size.height*0.9)
+        scoreLabel.position = CGPoint(x: self.size.width*0.2, y: self.size.height + scoreLabel.frame.size.height)
         scoreLabel.zPosition = 100  // (on top of everything)
         self.addChild(scoreLabel)
         
@@ -102,11 +107,64 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         livesLabel.fontSize = 70
         livesLabel.fontColor = UIColor.white
         livesLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
-        livesLabel.position = CGPoint(x: self.size.width * 0.8, y: self.size.height*0.9)
+        livesLabel.position = CGPoint(x: self.size.width * 0.8, y: self.size.height + livesLabel.frame.size.height)
         livesLabel.zPosition = 100
         self.addChild(livesLabel)
-        // add enemy aotumatically
-        startNewLevel()
+        let moveToScreenAciton = SKAction.moveTo(y: self.size.height*0.9, duration: 0.3)
+        scoreLabel.run(moveToScreenAciton)
+        livesLabel.run(moveToScreenAciton )
+        
+        // set Tap to start label
+        tapToStartLabel.text = "Tap To Start"
+        tapToStartLabel.fontColor = UIColor.white
+        tapToStartLabel.fontSize = 100
+        tapToStartLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+        tapToStartLabel.zPosition = 1
+        tapToStartLabel.alpha = 0
+        self.addChild(tapToStartLabel)
+        let faseInAction = SKAction.fadeIn(withDuration: 0.3)
+        tapToStartLabel.run(faseInAction)
+        
+    }
+    
+    var lastUpdateTime: TimeInterval = 0
+    var deltaFrameTime: TimeInterval = 0
+    var amountToMovePerSecond: CGFloat = 600.0
+    
+    override func update(_ currentTime: TimeInterval) {
+        // run at the start of every game loop, once per game frame
+        if lastUpdateTime == 0 {
+            lastUpdateTime  = currentTime
+        } else {
+            deltaFrameTime = currentTime - lastUpdateTime
+            lastUpdateTime = currentTime
+        }
+        
+        let amountToMoveBackground = amountToMovePerSecond * CGFloat(deltaFrameTime)
+        self.enumerateChildNodes(withName: "Background") { background, stop in
+            
+            if self.currentGameState == gameState.inGame {
+                background.position.y -= amountToMoveBackground
+            }
+            if background .position.y < -self.size.height {
+                background.position.y  += self.size.height*2
+            }
+        }
+    }
+    func startGame() {
+        
+        // change game state
+        currentGameState = gameState.inGame
+        // delete the tapToStartLabel
+        let fadeOutAction = SKAction.fadeOut(withDuration: 0.5)
+        let deleteAction = SKAction.removeFromParent()
+        let deleteSequence = SKAction.sequence([fadeOutAction, deleteAction])
+        tapToStartLabel.run(deleteSequence)
+        // move player onto scene and start the first level
+        let moveShipToScene = SKAction.moveTo(y: self.size.height*0.2, duration: 0.5)
+        let startLevelAction = SKAction.run(startNewLevel)
+        let startGameSequence = SKAction.sequence([moveShipToScene, startLevelAction])
+        player.run(startGameSequence)
     }
     
     // lose life
@@ -295,8 +353,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func spawnEnemy() {
         
         // generate the random position
-        let randomXStart = random(min: gameArea.minX, max: gameArea.maxY)
-        let randomXEnd = random(min: gameArea.minY, max: gameArea.maxY)
+        let randomXStart = random(min: gameArea.minX, max: gameArea.maxX)
+        let randomXEnd = random(min: gameArea.minX, max: gameArea.maxX)
         
         let startPoint = CGPoint(x: randomXStart, y: self.size.height * 1.2)
         let endPoint = CGPoint(x: randomXEnd, y: self.size.height * 0.2)
@@ -337,7 +395,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // run whenever you touch the screen
         // can only fire bullet if the current is inGame
-        if currentGameState == gameState.inGame{
+        if currentGameState == gameState.preGame {
+            startGame()
+        } else if currentGameState == gameState.inGame{
            fireBullet()
         }
         
