@@ -386,9 +386,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // difference between the startpoint and endPoint
         let dx = endPoint.x - startPoint.x
         let dy = endPoint.y - startPoint.y
-        let amountToRotate = atan2(Float(dy), Float(dx)) + Float.pi*5/4
-        enemy.zRotation = CGFloat(amountToRotate)
+        let amountToRotate = atan2(Float(dy), Float(dx))
+        enemy.zRotation = CGFloat(amountToRotate) - convertDegreesToRadians(degrees: 135)
         
+    }
+    
+    func convertDegreesToRadians(degrees: CGFloat) -> CGFloat {
+        return degrees * 0.0174533
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
