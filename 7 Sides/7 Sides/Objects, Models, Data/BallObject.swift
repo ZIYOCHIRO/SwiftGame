@@ -12,6 +12,7 @@ import SpriteKit
 class Ball: SKSpriteNode {
     
     let type: colorType
+    var isActive: Bool = true
     
     init() {
         // add random color ball
@@ -19,6 +20,14 @@ class Ball: SKSpriteNode {
         self.type = colorWheelOrder[randomTypeIndex]
         let ballTexture = SKTexture(imageNamed: "ball_\(self.type)")
         super.init(texture: ballTexture, color: UIColor.clear, size: ballTexture.size())
+        // add physical body as circle
+        self.physicsBody = SKPhysicsBody(circleOfRadius: 55)
+        self.physicsBody!.affectedByGravity = false
+        // collision: two physics body will bump each other out of the way
+        // contact: we can run some code when two physics bodies hit
+        self.physicsBody!.categoryBitMask = PhysicsCategories.Ball
+        self.physicsBody!.collisionBitMask = PhysicsCategories.None  // no collision
+        self.physicsBody!.contactTestBitMask = PhysicsCategories.Side  // contact with Side
         // scale in
         self.setScale(0)
         let scaleIn = SKAction.scale(to: 1, duration: 0.2)
@@ -35,4 +44,19 @@ class Ball: SKSpriteNode {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func delete() {
+        
+        self.isActive = false
+        self.removeAllActions()
+        let scaleDown = SKAction.scale(by: 0, duration: 0.2)
+        let deleteBall = SKAction.removeFromParent()
+        let deleteSequence = SKAction.sequence([scaleDown, deleteBall])
+        self.run(deleteSequence)
+    }
 }
+
+
+
+
+

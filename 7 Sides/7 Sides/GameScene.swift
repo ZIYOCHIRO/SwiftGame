@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var colorWheelBase = SKShapeNode()
     
@@ -20,6 +20,9 @@ class GameScene: SKScene {
     let tapToStartLabel = SKLabelNode(fontNamed: "CaviarDreams")
     
     override func didMove(to view: SKView) {
+        
+        self.physicsWorld.contactDelegate = self
+
         // set the background
         let background = SKSpriteNode(imageNamed: "gameBackground")
         background.size = self.size
@@ -83,6 +86,42 @@ class GameScene: SKScene {
         let deleteLabel = SKAction.removeFromParent()
         let deleteSequence = SKAction.sequence([scaleDown, deleteLabel])
         tapToStartLabel.run(deleteSequence)
+    }
+    
+    // built in function
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        // delete the former ball
+        let ball: Ball
+        let side: Side
+        
+        if contact.bodyA.categoryBitMask == PhysicsCategories.Ball {
+            ball = contact.bodyA.node! as! Ball
+            side = contact.bodyB.node! as! Side
+        } else {
+            ball = contact.bodyB.node! as! Ball
+            side = contact.bodyA.node! as! Side
+        }
+        
+        if ball.isActive == true {
+            ball.delete()
+            
+            // when the last ball arrives the side, a new ball should appear
+            spawnBall()
+        }
+        
+        checkMatch(ball: ball, side: side)
+    }
+    
+    func checkMatch(ball: Ball, side: Side) {
+        
+        if ball.type == side.type {
+            // correct
+            print("correct")
+        } else {
+            // incorrect
+            print("No!!!!")
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
