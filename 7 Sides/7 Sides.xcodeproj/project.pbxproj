@@ -18,6 +18,8 @@
 		0DB6BA1F21B6689E005451DB /* __SidesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6BA1E21B6689E005451DB /* __SidesTests.swift */; };
 		0DB6BA2A21B6689E005451DB /* __SidesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6BA2921B6689E005451DB /* __SidesUITests.swift */; };
 		0DB6BA3821B6B36D005451DB /* UtilityFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6BA3721B6B36D005451DB /* UtilityFuncs.swift */; };
+		0DB6BA3A21B79FA3005451DB /* SideObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6BA3921B79FA3005451DB /* SideObject.swift */; };
+		0DB6BA3C21B7A1B6005451DB /* ModelsAndData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6BA3B21B7A1B6005451DB /* ModelsAndData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		0DB6BA2921B6689E005451DB /* __SidesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = __SidesUITests.swift; sourceTree = "<group>"; };
 		0DB6BA2B21B6689E005451DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DB6BA3721B6B36D005451DB /* UtilityFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFuncs.swift; sourceTree = "<group>"; };
+		0DB6BA3921B79FA3005451DB /* SideObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideObject.swift; sourceTree = "<group>"; };
+		0DB6BA3B21B7A1B6005451DB /* ModelsAndData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsAndData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,8 @@
 				0DB6BA3721B6B36D005451DB /* UtilityFuncs.swift */,
 				0DB6BA0721B6689C005451DB /* Actions.sks */,
 				0DB6BA0921B6689C005451DB /* GameScene.swift */,
+				0DB6BA3921B79FA3005451DB /* SideObject.swift */,
+				0DB6BA3B21B7A1B6005451DB /* ModelsAndData.swift */,
 				0DB6BA0B21B6689C005451DB /* GameViewController.swift */,
 				0DB6BA0D21B6689C005451DB /* Main.storyboard */,
 				0DB6BA1021B6689E005451DB /* Assets.xcassets */,
@@ -272,8 +278,10 @@
 			files = (
 				0DB6BA3821B6B36D005451DB /* UtilityFuncs.swift in Sources */,
 				0DB6BA0A21B6689C005451DB /* GameScene.swift in Sources */,
+				0DB6BA3A21B79FA3005451DB /* SideObject.swift in Sources */,
 				0DB6BA0C21B6689C005451DB /* GameViewController.swift in Sources */,
 				0DB6BA0421B6689C005451DB /* AppDelegate.swift in Sources */,
+				0DB6BA3C21B7A1B6005451DB /* ModelsAndData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

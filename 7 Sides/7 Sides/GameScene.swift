@@ -13,6 +13,8 @@ class GameScene: SKScene {
     
     var colorWheelBase = SKShapeNode()
     
+    let spinColorWheel = SKAction.rotate(byAngle: -convertDegreesToRadians(degrees: 360/7), duration: 0.2)
+    
     override func didMove(to view: SKView) {
         // set the background
         let background = SKSpriteNode(imageNamed: "gameBackground")
@@ -34,10 +36,11 @@ class GameScene: SKScene {
     
     func preColorwheel() {
         
-        for _ in 0...6 {
-            let side = SKSpriteNode(imageNamed: "side_Blue")
-            let basePosition = CGPoint(x: self.size.width/2, y: self.size.height*0.25)
+        for i in 0...6 {
+            let side = Side(type: colorWheelOrder[i])
+            let basePosition = CGPoint(x: self.size.width/2, y: self.size.height*0.28 )
             side.position = convert(basePosition, to: colorWheelBase)
+            side.setScale(0.9)
             side.zRotation = -colorWheelBase.zRotation
             side.zPosition = 1
             colorWheelBase.addChild(side)
@@ -45,11 +48,16 @@ class GameScene: SKScene {
         }
         
         
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //
+        
+        colorWheelBase.run(spinColorWheel)
     }
 
 }
+
+
+
+
+
