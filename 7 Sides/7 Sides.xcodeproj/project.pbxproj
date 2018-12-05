@@ -20,6 +20,8 @@
 		0DB6BA3821B6B36D005451DB /* UtilityFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6BA3721B6B36D005451DB /* UtilityFuncs.swift */; };
 		0DB6BA3A21B79FA3005451DB /* SideObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6BA3921B79FA3005451DB /* SideObject.swift */; };
 		0DB6BA3C21B7A1B6005451DB /* ModelsAndData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6BA3B21B7A1B6005451DB /* ModelsAndData.swift */; };
+		0DB6BA3E21B7AD4A005451DB /* BallObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6BA3D21B7AD4A005451DB /* BallObject.swift */; };
+		0DB6BA4121B7C3E9005451DB /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6BA4021B7C3E9005451DB /* CaviarDreams.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		0DB6BA3721B6B36D005451DB /* UtilityFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFuncs.swift; sourceTree = "<group>"; };
 		0DB6BA3921B79FA3005451DB /* SideObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideObject.swift; sourceTree = "<group>"; };
 		0DB6BA3B21B7A1B6005451DB /* ModelsAndData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsAndData.swift; sourceTree = "<group>"; };
+		0DB6BA3D21B7AD4A005451DB /* BallObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallObject.swift; sourceTree = "<group>"; };
+		0DB6BA4021B7C3E9005451DB /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,11 +118,11 @@
 				0DB6BA3721B6B36D005451DB /* UtilityFuncs.swift */,
 				0DB6BA0721B6689C005451DB /* Actions.sks */,
 				0DB6BA0921B6689C005451DB /* GameScene.swift */,
-				0DB6BA3921B79FA3005451DB /* SideObject.swift */,
-				0DB6BA3B21B7A1B6005451DB /* ModelsAndData.swift */,
+				0DB6BA3F21B7AD84005451DB /* Objects, Models, Data */,
 				0DB6BA0B21B6689C005451DB /* GameViewController.swift */,
 				0DB6BA0D21B6689C005451DB /* Main.storyboard */,
 				0DB6BA1021B6689E005451DB /* Assets.xcassets */,
+				0DB6BA4021B7C3E9005451DB /* CaviarDreams.ttf */,
 				0DB6BA1221B6689E005451DB /* LaunchScreen.storyboard */,
 				0DB6BA1521B6689E005451DB /* Info.plist */,
 			);
@@ -141,6 +145,16 @@
 				0DB6BA2B21B6689E005451DB /* Info.plist */,
 			);
 			path = "7 SidesUITests";
+			sourceTree = "<group>";
+		};
+		0DB6BA3F21B7AD84005451DB /* Objects, Models, Data */ = {
+			isa = PBXGroup;
+			children = (
+				0DB6BA3D21B7AD4A005451DB /* BallObject.swift */,
+				0DB6BA3921B79FA3005451DB /* SideObject.swift */,
+				0DB6BA3B21B7A1B6005451DB /* ModelsAndData.swift */,
+			);
+			path = "Objects, Models, Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +263,7 @@
 			files = (
 				0DB6BA0F21B6689C005451DB /* Main.storyboard in Resources */,
 				0DB6BA0621B6689C005451DB /* GameScene.sks in Resources */,
+				0DB6BA4121B7C3E9005451DB /* CaviarDreams.ttf in Resources */,
 				0DB6BA1121B6689E005451DB /* Assets.xcassets in Resources */,
 				0DB6BA1421B6689E005451DB /* LaunchScreen.storyboard in Resources */,
 				0DB6BA0821B6689C005451DB /* Actions.sks in Resources */,
@@ -277,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DB6BA3821B6B36D005451DB /* UtilityFuncs.swift in Sources */,
+				0DB6BA3E21B7AD4A005451DB /* BallObject.swift in Sources */,
 				0DB6BA0A21B6689C005451DB /* GameScene.swift in Sources */,
 				0DB6BA3A21B79FA3005451DB /* SideObject.swift in Sources */,
 				0DB6BA0C21B6689C005451DB /* GameViewController.swift in Sources */,

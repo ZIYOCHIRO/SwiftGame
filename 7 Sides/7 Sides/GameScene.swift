@@ -15,6 +15,10 @@ class GameScene: SKScene {
     
     let spinColorWheel = SKAction.rotate(byAngle: -convertDegreesToRadians(degrees: 360/7), duration: 0.2)
     
+    var currentGameState = gameState.beforeGame
+    
+    let tapToStartLabel = SKLabelNode(fontNamed: "CaviarDreams")
+    
     override func didMove(to view: SKView) {
         // set the background
         let background = SKSpriteNode(imageNamed: "gameBackground")
@@ -32,27 +36,68 @@ class GameScene: SKScene {
         
         preColorwheel()
         
+        tapToStartLabel.text = "Tap to Start"
+        tapToStartLabel.fontSize = 100
+        tapToStartLabel.fontColor = UIColor.darkGray
+        tapToStartLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+        self.addChild(tapToStartLabel)
+        
+        
     }
     
     func preColorwheel() {
         
         for i in 0...6 {
             let side = Side(type: colorWheelOrder[i])
-            let basePosition = CGPoint(x: self.size.width/2, y: self.size.height*0.28 )
+            let basePosition = CGPoint(x: self.size.width/2, y: self.size.height*0.3 )
             side.position = convert(basePosition, to: colorWheelBase)
-            side.setScale(0.9)
             side.zRotation = -colorWheelBase.zRotation
-            side.zPosition = 1
+            side.setScale(0.8)
             colorWheelBase.addChild(side)
             colorWheelBase.zRotation += convertDegreesToRadians(degrees: 360/7)
+        }
+        
+        for side in colorWheelBase.children{
+            let sidePosition = side.position
+            let positionInScene = convert(sidePosition, from: colorWheelBase)
+            sidePositionArray.append(positionInScene)
+            
         }
         
         
     }
     
+    func spawnBall() {
+        
+        let ball = Ball()
+        ball.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+        self.addChild(ball)
+    }
+    
+    func startGame() {
+        
+        spawnBall()
+        currentGameState = .inGame
+        // delete the tap to start label
+        let scaleDown = SKAction.scale(to: 0, duration: 0.2)
+        let deleteLabel = SKAction.removeFromParent()
+        let deleteSequence = SKAction.sequence([scaleDown, deleteLabel])
+        tapToStartLabel.run(deleteSequence)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        colorWheelBase.run(spinColorWheel)
+        if currentGameState == gameState.beforeGame {
+            // start the game
+            startGame()
+            
+        }
+        else if currentGameState == gameState.inGame {
+            // spin the color wheel
+            colorWheelBase.run(spinColorWheel)
+        }
+        
+        
     }
 
 }

@@ -38,5 +38,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>CaviarDreams.ttf</string>
+	</array>
 </dict>
 </plist>
