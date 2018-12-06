@@ -38,7 +38,12 @@ struct PhysicsCategories {
     static let Side: UInt32 = 0b10 //2
 }
 
+//---------------- Score system ---------------
 
+var score: Int = 0
+
+// ---------- Level system -------
+var ballMovementTime: TimeInterval = 2
 
 
 

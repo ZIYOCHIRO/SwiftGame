@@ -35,7 +35,7 @@ class Ball: SKSpriteNode {
         // move to random side
         let randomSideIndex = Int(arc4random()%7)
         let sideToMoveTo = sidePositionArray[randomSideIndex]
-        let moveToSide = SKAction.move(to: sideToMoveTo, duration: 2)
+        let moveToSide = SKAction.move(to: sideToMoveTo, duration: ballMovementTime)
         
         let ballSpawnSequence = SKAction.sequence([scaleIn, moveToSide])
         self.run(ballSpawnSequence)

@@ -22,6 +22,7 @@
 		0DB6BA3C21B7A1B6005451DB /* ModelsAndData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6BA3B21B7A1B6005451DB /* ModelsAndData.swift */; };
 		0DB6BA3E21B7AD4A005451DB /* BallObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6BA3D21B7AD4A005451DB /* BallObject.swift */; };
 		0DB6BA4121B7C3E9005451DB /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6BA4021B7C3E9005451DB /* CaviarDreams.ttf */; };
+		0DB6BA4321B80907005451DB /* Correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6BA4221B80906005451DB /* Correct.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		0DB6BA3B21B7A1B6005451DB /* ModelsAndData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsAndData.swift; sourceTree = "<group>"; };
 		0DB6BA3D21B7AD4A005451DB /* BallObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallObject.swift; sourceTree = "<group>"; };
 		0DB6BA4021B7C3E9005451DB /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
+		0DB6BA4221B80906005451DB /* Correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Correct.wav; path = ../../DisappearingDiscs/DisappearingDiscs/Correct.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				0DB6BA0B21B6689C005451DB /* GameViewController.swift */,
 				0DB6BA0D21B6689C005451DB /* Main.storyboard */,
 				0DB6BA1021B6689E005451DB /* Assets.xcassets */,
+				0DB6BA4221B80906005451DB /* Correct.wav */,
 				0DB6BA4021B7C3E9005451DB /* CaviarDreams.ttf */,
 				0DB6BA1221B6689E005451DB /* LaunchScreen.storyboard */,
 				0DB6BA1521B6689E005451DB /* Info.plist */,
@@ -267,6 +270,7 @@
 				0DB6BA1121B6689E005451DB /* Assets.xcassets in Resources */,
 				0DB6BA1421B6689E005451DB /* LaunchScreen.storyboard in Resources */,
 				0DB6BA0821B6689C005451DB /* Actions.sks in Resources */,
+				0DB6BA4321B80907005451DB /* Correct.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

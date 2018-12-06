@@ -19,6 +19,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let tapToStartLabel = SKLabelNode(fontNamed: "CaviarDreams")
     
+    let scoreLabel = SKLabelNode(fontNamed: "CaviarDreams")
+    
+    let playCorrectSound = SKAction.playSoundFileNamed("Correct.wav", waitForCompletion: false)
+    
+    var highScore = UserDefaults.standard.integer(forKey: "HighScore")
+    
+    let highScoreLabel = SKLabelNode(fontNamed: "CaviarDreams")
+    
     override func didMove(to view: SKView) {
         
         self.physicsWorld.contactDelegate = self
@@ -45,6 +53,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         tapToStartLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         self.addChild(tapToStartLabel)
         
+        // add score label
+        scoreLabel.text = "0"
+        scoreLabel.fontSize = 225
+        scoreLabel.fontColor = UIColor.darkGray
+        scoreLabel.position = CGPoint(x: self.size.width/2, y: self.size.height*0.85)
+        self.addChild(scoreLabel)
+        
+        // add high score label
+        highScoreLabel.text = "Best: \(highScore)"
+        highScoreLabel.fontSize = 100
+        highScoreLabel.fontColor = UIColor.darkGray
+        highScoreLabel.position = CGPoint(x: self.size.width/2, y: self.size.height*0.8)
+        self.addChild(highScoreLabel)
         
     }
     
@@ -104,23 +125,58 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if ball.isActive == true {
-            ball.delete()
-            
-            // when the last ball arrives the side, a new ball should appear
-            spawnBall()
+           checkMatch(ball: ball, side: side)
         }
         
-        checkMatch(ball: ball, side: side)
+        
     }
     
     func checkMatch(ball: Ball, side: Side) {
         
         if ball.type == side.type {
-            // correct
+            // correct: go one game
+            correctMatch(ball: ball)
             print("correct")
         } else {
-            // incorrect
+            // incorrect: game over
+            wrongMatch()
             print("No!!!!")
+        }
+    }
+    
+    func correctMatch(ball: Ball) {
+        ball.delete()
+        
+        score += 1
+        scoreLabel.text = "\(score)"
+        
+        // update the high score during the game
+        if score > highScore {
+            highScoreLabel.text = "Best: \(score)"
+        }
+        
+        // add correct sound effect
+        self.run(playCorrectSound)
+        
+        // level up system
+        switch score {
+        case 5: ballMovementTime = 1
+        case 15: ballMovementTime = 1.6
+        case 25: ballMovementTime = 1.5
+        case 40: ballMovementTime = 1.4
+        case 60: ballMovementTime = 1.3
+        default: print("")
+        }
+        spawnBall()
+    }
+    
+    func wrongMatch() {
+        // end the game
+        
+        // update high score
+        if score > highScore {
+            highScore = score
+            UserDefaults.standard.set(highScore, forKey: "HighScore")
         }
     }
     
