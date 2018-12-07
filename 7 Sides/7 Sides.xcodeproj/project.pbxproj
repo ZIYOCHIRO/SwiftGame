@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D3276DC21BA492C00B5F81D /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3276DB21BA492C00B5F81D /* MainMenuScene.swift */; };
+		0D3276DE21BA493E00B5F81D /* MainMenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0D3276DD21BA493E00B5F81D /* MainMenuScene.sks */; };
 		0DB6BA0421B6689C005451DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6BA0321B6689C005451DB /* AppDelegate.swift */; };
 		0DB6BA0621B6689C005451DB /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6BA0521B6689C005451DB /* GameScene.sks */; };
 		0DB6BA0821B6689C005451DB /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6BA0721B6689C005451DB /* Actions.sks */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D3276DB21BA492C00B5F81D /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
+		0D3276DD21BA493E00B5F81D /* MainMenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenuScene.sks; sourceTree = "<group>"; };
 		0DB6BA0021B6689C005451DB /* 7 Sides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "7 Sides.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DB6BA0321B6689C005451DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DB6BA0521B6689C005451DB /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -98,6 +102,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D3276DF21BA49A500B5F81D /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				0D3276DD21BA493E00B5F81D /* MainMenuScene.sks */,
+				0D3276DB21BA492C00B5F81D /* MainMenuScene.swift */,
+				0DB6BA0521B6689C005451DB /* GameScene.sks */,
+				0DB6BA0921B6689C005451DB /* GameScene.swift */,
+				0DB6BA4621B8B4B7005451DB /* GameOverScene.sks */,
+				0DB6BA4821B8B503005451DB /* GameOverScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 		0DB6B9F721B6689C005451DB = {
 			isa = PBXGroup;
 			children = (
@@ -122,12 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				0DB6BA0321B6689C005451DB /* AppDelegate.swift */,
-				0DB6BA0521B6689C005451DB /* GameScene.sks */,
 				0DB6BA3721B6B36D005451DB /* UtilityFuncs.swift */,
 				0DB6BA0721B6689C005451DB /* Actions.sks */,
-				0DB6BA0921B6689C005451DB /* GameScene.swift */,
-				0DB6BA4621B8B4B7005451DB /* GameOverScene.sks */,
-				0DB6BA4821B8B503005451DB /* GameOverScene.swift */,
+				0D3276DF21BA49A500B5F81D /* Scenes */,
 				0DB6BA3F21B7AD84005451DB /* Objects, Models, Data */,
 				0DB6BA0B21B6689C005451DB /* GameViewController.swift */,
 				0DB6BA0D21B6689C005451DB /* Main.storyboard */,
@@ -277,6 +291,7 @@
 				0DB6BA0621B6689C005451DB /* GameScene.sks in Resources */,
 				0DB6BA4121B7C3E9005451DB /* CaviarDreams.ttf in Resources */,
 				0DB6BA1121B6689E005451DB /* Assets.xcassets in Resources */,
+				0D3276DE21BA493E00B5F81D /* MainMenuScene.sks in Resources */,
 				0DB6BA4521B8B22E005451DB /* Incorrect.wav in Resources */,
 				0DB6BA1421B6689E005451DB /* LaunchScreen.storyboard in Resources */,
 				0DB6BA0821B6689C005451DB /* Actions.sks in Resources */,
@@ -309,6 +324,7 @@
 				0DB6BA3821B6B36D005451DB /* UtilityFuncs.swift in Sources */,
 				0DB6BA3E21B7AD4A005451DB /* BallObject.swift in Sources */,
 				0DB6BA4921B8B503005451DB /* GameOverScene.swift in Sources */,
+				0D3276DC21BA492C00B5F81D /* MainMenuScene.swift in Sources */,
 				0DB6BA0A21B6689C005451DB /* GameScene.swift in Sources */,
 				0DB6BA3A21B79FA3005451DB /* SideObject.swift in Sources */,
 				0DB6BA0C21B6689C005451DB /* GameViewController.swift in Sources */,
