@@ -27,7 +27,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let highScoreLabel = SKLabelNode(fontNamed: "CaviarDreams")
     
+    let playIncorrectSound = SKAction.playSoundFileNamed("Incorrect.wav", waitForCompletion: false)
+    
     override func didMove(to view: SKView) {
+        
+        score = 0
+        ballMovementTime = 2
         
         self.physicsWorld.contactDelegate = self
 
@@ -139,7 +144,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print("correct")
         } else {
             // incorrect: game over
-            wrongMatch()
+            wrongMatch(ball: ball)
             print("No!!!!")
         }
     }
@@ -160,7 +165,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // level up system
         switch score {
-        case 5: ballMovementTime = 1
+        case 5: ballMovementTime = 1.8
         case 15: ballMovementTime = 1.6
         case 25: ballMovementTime = 1.5
         case 40: ballMovementTime = 1.4
@@ -170,14 +175,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         spawnBall()
     }
     
-    func wrongMatch() {
+    func wrongMatch(ball: Ball) {
         // end the game
-        
+        // flash the ball
+        ball.flash()
+        currentGameState = gameState.afterGame
+        colorWheelBase.removeAllActions()
+        self.run(playIncorrectSound)
         // update high score
         if score > highScore {
             highScore = score
             UserDefaults.standard.set(highScore, forKey: "HighScore")
         }
+        
+        // change scene to game over scene after wait 3 seconds
+        let waitToChangeScene = SKAction.wait(forDuration: 3)
+        let changeScene = SKAction.run {
+            let sceneToMoveTo = GameOverScene(fileNamed: "GameOverScene")!
+            sceneToMoveTo.scaleMode = self.scaleMode
+            let sceneTransition = SKTransition.fade(withDuration: 0.5)
+            self.view!.presentScene(sceneToMoveTo, transition: sceneTransition)
+        }
+        let sceneChangeSequence = SKAction.sequence([waitToChangeScene, changeScene])
+        self.run(sceneChangeSequence)
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

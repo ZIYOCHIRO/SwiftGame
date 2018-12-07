@@ -23,6 +23,9 @@
 		0DB6BA3E21B7AD4A005451DB /* BallObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6BA3D21B7AD4A005451DB /* BallObject.swift */; };
 		0DB6BA4121B7C3E9005451DB /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6BA4021B7C3E9005451DB /* CaviarDreams.ttf */; };
 		0DB6BA4321B80907005451DB /* Correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6BA4221B80906005451DB /* Correct.wav */; };
+		0DB6BA4521B8B22E005451DB /* Incorrect.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6BA4421B8B22E005451DB /* Incorrect.wav */; };
+		0DB6BA4721B8B4B7005451DB /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0DB6BA4621B8B4B7005451DB /* GameOverScene.sks */; };
+		0DB6BA4921B8B503005451DB /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6BA4821B8B503005451DB /* GameOverScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		0DB6BA3D21B7AD4A005451DB /* BallObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallObject.swift; sourceTree = "<group>"; };
 		0DB6BA4021B7C3E9005451DB /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
 		0DB6BA4221B80906005451DB /* Correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Correct.wav; path = ../../DisappearingDiscs/DisappearingDiscs/Correct.wav; sourceTree = "<group>"; };
+		0DB6BA4421B8B22E005451DB /* Incorrect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Incorrect.wav; path = ../../DisappearingDiscs/DisappearingDiscs/Incorrect.wav; sourceTree = "<group>"; };
+		0DB6BA4621B8B4B7005451DB /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
+		0DB6BA4821B8B503005451DB /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,10 +126,13 @@
 				0DB6BA3721B6B36D005451DB /* UtilityFuncs.swift */,
 				0DB6BA0721B6689C005451DB /* Actions.sks */,
 				0DB6BA0921B6689C005451DB /* GameScene.swift */,
+				0DB6BA4621B8B4B7005451DB /* GameOverScene.sks */,
+				0DB6BA4821B8B503005451DB /* GameOverScene.swift */,
 				0DB6BA3F21B7AD84005451DB /* Objects, Models, Data */,
 				0DB6BA0B21B6689C005451DB /* GameViewController.swift */,
 				0DB6BA0D21B6689C005451DB /* Main.storyboard */,
 				0DB6BA1021B6689E005451DB /* Assets.xcassets */,
+				0DB6BA4421B8B22E005451DB /* Incorrect.wav */,
 				0DB6BA4221B80906005451DB /* Correct.wav */,
 				0DB6BA4021B7C3E9005451DB /* CaviarDreams.ttf */,
 				0DB6BA1221B6689E005451DB /* LaunchScreen.storyboard */,
@@ -268,8 +277,10 @@
 				0DB6BA0621B6689C005451DB /* GameScene.sks in Resources */,
 				0DB6BA4121B7C3E9005451DB /* CaviarDreams.ttf in Resources */,
 				0DB6BA1121B6689E005451DB /* Assets.xcassets in Resources */,
+				0DB6BA4521B8B22E005451DB /* Incorrect.wav in Resources */,
 				0DB6BA1421B6689E005451DB /* LaunchScreen.storyboard in Resources */,
 				0DB6BA0821B6689C005451DB /* Actions.sks in Resources */,
+				0DB6BA4721B8B4B7005451DB /* GameOverScene.sks in Resources */,
 				0DB6BA4321B80907005451DB /* Correct.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +308,7 @@
 			files = (
 				0DB6BA3821B6B36D005451DB /* UtilityFuncs.swift in Sources */,
 				0DB6BA3E21B7AD4A005451DB /* BallObject.swift in Sources */,
+				0DB6BA4921B8B503005451DB /* GameOverScene.swift in Sources */,
 				0DB6BA0A21B6689C005451DB /* GameScene.swift in Sources */,
 				0DB6BA3A21B79FA3005451DB /* SideObject.swift in Sources */,
 				0DB6BA0C21B6689C005451DB /* GameViewController.swift in Sources */,

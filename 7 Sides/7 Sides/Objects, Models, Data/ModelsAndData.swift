@@ -30,6 +30,7 @@ var sidePositionArray: [CGPoint] = []
 enum gameState {
     case beforeGame
     case inGame
+    case afterGame
 }
 // --------- physics gategories -----
 struct PhysicsCategories {
