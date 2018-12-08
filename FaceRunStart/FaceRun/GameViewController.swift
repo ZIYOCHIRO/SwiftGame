@@ -42,6 +42,12 @@ class GameViewController: UIViewController, ARSessionDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        guard ARFaceTrackingConfiguration.isSupported else {
+            print("iPhone x required ")
+            return
+        }
+        let configuration = ARFaceTrackingConfiguration()
+        session.run(configuration, options:[.resetTracking, .removeExistingAnchors])
     }
     
     override var shouldAutorotate: Bool {
@@ -63,11 +69,24 @@ class GameViewController: UIViewController, ARSessionDelegate {
     
     // MARK: ARSession Delegate
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-        
+        if let faceAnchor = anchors.first as? ARFaceAnchor {
+            update(withFaceAnchor: faceAnchor)
+        }
     }
     
     
     func update(withFaceAnchor faceAnchor: ARFaceAnchor) {
+        var bledShapes:[ARFaceAnchor.BlendShapeLocation: Any] = faceAnchor.blendShapes
         
+        guard let browInnerUp = bledShapes[.browInnerUp] as? Float else {
+            return
+        }
+        if browInnerUp > 0.5 {
+            gameScene.updatePlayer(state: .up)
+        }else if browInnerUp < 0.025 {
+            gameScene.updatePlayer(state: .down)
+        }else {
+            gameScene.updatePlayer(state: .neutral)
+        }
     }
 }
