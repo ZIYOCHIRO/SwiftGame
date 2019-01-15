@@ -21,13 +21,22 @@
 		0DE886A921EC5DC400B698DE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE886A821EC5DC400B698DE /* GameViewController.swift */; };
 		0DE886AB21EC5DEB00B698DE /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE886AA21EC5DEB00B698DE /* UserViewController.swift */; };
 		0DE886AD21EC61BC00B698DE /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE886AC21EC61BC00B698DE /* Color.xcassets */; };
-		0DE886AF21EC631A00B698DE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE886AE21EC631A00B698DE /* Theme.swift */; };
+		0DE886AF21EC631A00B698DE /* theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE886AE21EC631A00B698DE /* theme.swift */; };
 		0DE886B121EC656E00B698DE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE886B021EC656E00B698DE /* Images.xcassets */; };
 		0DE886B321EC65B000B698DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE886B221EC65B000B698DE /* Assets.xcassets */; };
 		0DE886B521EC665C00B698DE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE886B421EC665C00B698DE /* Images.xcassets */; };
 		0DE886BA21EC6D7700B698DE /* Handwerk.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DE886B921EC6D7700B698DE /* Handwerk.ttf */; };
 		0DE886BC21EC737000B698DE /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE886BB21EC737000B698DE /* UIViewExtensions.swift */; };
 		0DE886BF21EC73A200B698DE /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE886BE21EC73A200B698DE /* UIButtonExtensions.swift */; };
+		0DE886C321EC90C000B698DE /* Skia.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DE886C221EC90C000B698DE /* Skia.ttf */; };
+		0DE886C721EC914A00B698DE /* IndieFlower.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DE886C621EC914A00B698DE /* IndieFlower.ttf */; };
+		0DE886C921EC94EC00B698DE /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE886C821EC94EC00B698DE /* constants.swift */; };
+		0DE886CB21ED7BCB00B698DE /* Click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DE886CA21ED7BCB00B698DE /* Click.wav */; };
+		0DE886CD21ED7BE100B698DE /* Correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DE886CC21ED7BE100B698DE /* Correct.wav */; };
+		0DE886CF21ED7BEE00B698DE /* Incorrect.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DE886CE21ED7BEE00B698DE /* Incorrect.wav */; };
+		0DE886D121ED7C1E00B698DE /* GameOverSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DE886D021ED7C1E00B698DE /* GameOverSound.wav */; };
+		0DE886D321ED844000B698DE /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE886D221ED844000B698DE /* MainMenuScene.swift */; };
+		0DE886D521ED9C0700B698DE /* DiscGameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE886D421ED9C0700B698DE /* DiscGameDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,13 +56,22 @@
 		0DE886A821EC5DC400B698DE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		0DE886AA21EC5DEB00B698DE /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		0DE886AC21EC61BC00B698DE /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
-		0DE886AE21EC631A00B698DE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		0DE886AE21EC631A00B698DE /* theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theme.swift; sourceTree = "<group>"; };
 		0DE886B021EC656E00B698DE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0DE886B221EC65B000B698DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DE886B421EC665C00B698DE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0DE886B921EC6D7700B698DE /* Handwerk.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Handwerk.ttf; sourceTree = "<group>"; };
 		0DE886BB21EC737000B698DE /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		0DE886BE21EC73A200B698DE /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
+		0DE886C221EC90C000B698DE /* Skia.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Skia.ttf; sourceTree = "<group>"; };
+		0DE886C621EC914A00B698DE /* IndieFlower.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IndieFlower.ttf; sourceTree = "<group>"; };
+		0DE886C821EC94EC00B698DE /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		0DE886CA21ED7BCB00B698DE /* Click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Click.wav; path = ../../../../DisappearingDiscs/DisappearingDiscs/Click.wav; sourceTree = "<group>"; };
+		0DE886CC21ED7BE100B698DE /* Correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Correct.wav; path = ../../../../DisappearingDiscs/DisappearingDiscs/Correct.wav; sourceTree = "<group>"; };
+		0DE886CE21ED7BEE00B698DE /* Incorrect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Incorrect.wav; path = ../../../../DisappearingDiscs/DisappearingDiscs/Incorrect.wav; sourceTree = "<group>"; };
+		0DE886D021ED7C1E00B698DE /* GameOverSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = GameOverSound.wav; path = "../../../../Space Invaders/Space Invaders/GameOverSound.wav"; sourceTree = "<group>"; };
+		0DE886D221ED844000B698DE /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
+		0DE886D421ED9C0700B698DE /* DiscGameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscGameDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +122,8 @@
 			children = (
 				0DE8868C21EC5A4600B698DE /* DisappearingDiscs.storyboard */,
 				0DE8868A21EC5A4600B698DE /* DisappearingViewController.swift */,
+				0DE886D421ED9C0700B698DE /* DiscGameDelegate.swift */,
+				0DE886D221ED844000B698DE /* MainMenuScene.swift */,
 				0DE8868821EC5A4600B698DE /* GameScene.swift */,
 				0DE886B621EC6CF100B698DE /* Resources */,
 			);
@@ -144,8 +164,13 @@
 			isa = PBXGroup;
 			children = (
 				0DE886B921EC6D7700B698DE /* Handwerk.ttf */,
+				0DE886CE21ED7BEE00B698DE /* Incorrect.wav */,
+				0DE886CA21ED7BCB00B698DE /* Click.wav */,
+				0DE886CC21ED7BE100B698DE /* Correct.wav */,
+				0DE886D021ED7C1E00B698DE /* GameOverSound.wav */,
 				0DE8868F21EC5A4900B698DE /* Images.xcassets */,
 				0DE886AC21EC61BC00B698DE /* Color.xcassets */,
+				0DE886C821EC94EC00B698DE /* constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -153,6 +178,7 @@
 		0DE886B721EC6D0400B698DE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0DE886C221EC90C000B698DE /* Skia.ttf */,
 				0DE886B021EC656E00B698DE /* Images.xcassets */,
 			);
 			path = Resources;
@@ -161,6 +187,7 @@
 		0DE886B821EC6D1900B698DE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0DE886C621EC914A00B698DE /* IndieFlower.ttf */,
 				0DE886B421EC665C00B698DE /* Images.xcassets */,
 			);
 			path = Resources;
@@ -171,7 +198,7 @@
 			children = (
 				0DE886BB21EC737000B698DE /* UIViewExtensions.swift */,
 				0DE886BE21EC73A200B698DE /* UIButtonExtensions.swift */,
-				0DE886AE21EC631A00B698DE /* Theme.swift */,
+				0DE886AE21EC631A00B698DE /* theme.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -234,7 +261,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DE886C321EC90C000B698DE /* Skia.ttf in Resources */,
 				0DE886B321EC65B000B698DE /* Assets.xcassets in Resources */,
+				0DE886CF21ED7BEE00B698DE /* Incorrect.wav in Resources */,
+				0DE886D121ED7C1E00B698DE /* GameOverSound.wav in Resources */,
 				0DE886B521EC665C00B698DE /* Images.xcassets in Resources */,
 				0DE8868E21EC5A4600B698DE /* DisappearingDiscs.storyboard in Resources */,
 				0DE886B121EC656E00B698DE /* Images.xcassets in Resources */,
@@ -244,7 +274,10 @@
 				0DE886A321EC5D8B00B698DE /* SevenSides.storyboard in Resources */,
 				0DE886AD21EC61BC00B698DE /* Color.xcassets in Resources */,
 				0DE886A121EC5D7E00B698DE /* SpaceInvader.storyboard in Resources */,
+				0DE886CB21ED7BCB00B698DE /* Click.wav in Resources */,
 				0DE8869D21EC5D0300B698DE /* Main.storyboard in Resources */,
+				0DE886CD21ED7BE100B698DE /* Correct.wav in Resources */,
+				0DE886C721EC914A00B698DE /* IndieFlower.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,15 +289,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DE886AB21EC5DEB00B698DE /* UserViewController.swift in Sources */,
-				0DE886AF21EC631A00B698DE /* Theme.swift in Sources */,
+				0DE886D321ED844000B698DE /* MainMenuScene.swift in Sources */,
+				0DE886AF21EC631A00B698DE /* theme.swift in Sources */,
 				0DE8868921EC5A4600B698DE /* GameScene.swift in Sources */,
 				0DE8868B21EC5A4600B698DE /* DisappearingViewController.swift in Sources */,
 				0DE886A721EC5DB000B698DE /* SevenSidesViewController.swift in Sources */,
 				0DE886BF21EC73A200B698DE /* UIButtonExtensions.swift in Sources */,
 				0DE886A521EC5DA000B698DE /* SpaceInvaderViewController.swift in Sources */,
 				0DE886A921EC5DC400B698DE /* GameViewController.swift in Sources */,
+				0DE886D521ED9C0700B698DE /* DiscGameDelegate.swift in Sources */,
 				0DE886BC21EC737000B698DE /* UIViewExtensions.swift in Sources */,
 				0DE8868321EC5A4600B698DE /* AppDelegate.swift in Sources */,
+				0DE886C921EC94EC00B698DE /* constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

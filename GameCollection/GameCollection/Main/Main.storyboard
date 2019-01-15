@@ -69,7 +69,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" name="Color-5"/>
+                                        <color key="backgroundColor" name="Color-1"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="SoA-Lv-zwZ" secondAttribute="trailing" constant="8" id="U9R-1m-Xbr"/>
                                             <constraint firstItem="SoA-Lv-zwZ" firstAttribute="top" secondItem="v8Q-OG-89t" secondAttribute="top" constant="8" id="aa1-kY-csu"/>
@@ -102,7 +102,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" name="Color-3"/>
+                                        <color key="backgroundColor" name="Color-2"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="b15-UF-2jq" secondAttribute="bottom" constant="8" id="cIz-sX-Kw4"/>
                                             <constraint firstAttribute="trailing" secondItem="b15-UF-2jq" secondAttribute="trailing" constant="8" id="f3l-MA-qiR"/>
@@ -135,7 +135,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" name="Color-4"/>
+                                        <color key="backgroundColor" name="Color-3"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="H6M-Qz-q1d" secondAttribute="trailing" constant="8" id="F3m-Bk-4TG"/>
                                             <constraint firstItem="H6M-Qz-q1d" firstAttribute="leading" secondItem="AQq-eK-Hg6" secondAttribute="leading" constant="8" id="aEn-YT-RaA"/>
@@ -215,14 +215,14 @@
         <image name="MainPicture-SpaceShip" width="96" height="96"/>
         <image name="TabBar-Game" width="32" height="32"/>
         <image name="TabBar-User" width="32" height="32"/>
-        <namedColor name="Color-3">
+        <namedColor name="Color-1">
             <color red="0.86274509803921573" green="0.80784313725490198" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Color-4">
-            <color red="0.69019607843137254" green="0.81568627450980391" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Color-2">
+            <color red="0.90980392156862744" green="0.69019607843137254" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Color-5">
-            <color red="1" green="0.90588235294117647" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Color-3">
+            <color red="0.69019607843137254" green="0.81568627450980391" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

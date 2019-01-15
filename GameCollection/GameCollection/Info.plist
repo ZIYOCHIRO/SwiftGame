@@ -46,6 +46,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Handwerk.ttf</string>
+		<string>Skia.ttf</string>
+		<string>IndieFlower.ttf</string>
 	</array>
 </dict>
 </plist>
